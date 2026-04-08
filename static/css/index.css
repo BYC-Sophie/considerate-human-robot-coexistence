@@ -79,7 +79,7 @@ body {
 }
 
 .link-block a {
-    margin: 8px 4px;
+    margin: 6px 4px;
 }
 
 .dnerf {
@@ -100,12 +100,12 @@ body {
 }
 
 .hero-body {
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem;
 }
 
 .teaser .hero-body {
-  padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
 }
 
 .teaser {
@@ -118,7 +118,8 @@ body {
     font-family: 'Inter', sans-serif !important;
     font-weight: 800 !important;
     color: var(--text-primary) !important;
-    margin-bottom: 2rem !important;
+    font-size: 2.5rem !important;
+    margin-bottom: 1.25rem !important;
     line-height: 1.1 !important;
 }
 
@@ -142,13 +143,19 @@ body {
 }
 
 .publication-header .hero-body {
-  padding: 6rem 1.5rem 4rem;
+  padding: 4rem 1.5rem 3rem;
 }
 
 .publication-authors {
     font-family: 'Inter', sans-serif !important;
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    font-size: 1rem !important;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.publication-authors + .publication-authors {
+  font-size: 0.95rem !important;
 }
 
 .publication-venue {
@@ -313,9 +320,9 @@ body {
   font-family: 'Inter', sans-serif !important;
   font-weight: 700 !important;
   color: var(--text-primary);
-  margin-bottom: 2rem !important;
+  margin-bottom: 1.5rem !important;
   position: relative;
-  padding-bottom: 1rem;
+  padding-bottom: 0.75rem;
 }
 
 .title.is-3::after {
@@ -332,13 +339,17 @@ body {
 
 /* Content Improvements */
 .content.has-text-justified {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.6;
   color: var(--text-secondary);
 }
 
 .content.has-text-justified p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.section {
+  padding: 2.5rem 1.5rem;
 }
 
 /* Footer Improvements */
@@ -658,7 +669,7 @@ code {
 
 @media screen and (max-width: 480px) {
   .publication-title {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
   }
   
   .hero-body {
