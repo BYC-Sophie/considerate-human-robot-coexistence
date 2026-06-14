@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interview Guide — Considerate Human–Robot Coexistence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b2730;
+    --ink-soft:#46565f;
+    --ink-faint:#7c8a90;
+    --paper:#f5f7f6;
+    --card:#ffffff;
+    --line:#dde5e4;
+    --line-soft:#e8eeed;
+    /* paper's dual-space palette: teal = design/structure, coral = human/perception */
+    --design:#157a78;
+    --design-deep:#0e5b59;
+    --perception:#bb4a34;
+    --perception-soft:#f3e3de;
+    --design-soft:#e2efee;
+    --focus:#157a78;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--design-soft);}
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px 96px;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    padding:72px 0 40px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--design-deep);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px;height:1px;background:var(--design);
+    display:inline-block;
+  }
+  h1{
+    font-family:"Source Serif 4",Georgia,serif;
+    font-weight:600;
+    font-size:clamp(30px,5.2vw,42px);
+    line-height:1.12;
+    letter-spacing:-0.01em;
+    margin:0 0 18px;
+  }
+  .sub{
+    font-size:17px;
+    color:var(--ink-soft);
+    max-width:60ch;
+    margin:0;
+  }
+
+  /* ---------- procedure note ---------- */
+  .procedure{
+    margin:36px 0 8px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:3px solid var(--design);
+    border-radius:4px;
+    padding:22px 24px;
+  }
+  .procedure .tag{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 8px;
+  }
+  .procedure p{margin:0;font-size:15.5px;color:var(--ink-soft);line-height:1.6;}
+
+  /* ---------- section ---------- */
+  section{padding:54px 0 0;}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:6px;
+  }
+  .sec-marker{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:13px;
+    color:var(--perception);
+    font-weight:500;
+    flex:none;
+  }
+  h2{
+    font-family:"Source Serif 4",Georgia,serif;
+    font-weight:600;
+    font-size:24px;
+    line-height:1.2;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .sec-note{
+    font-size:13.5px;
+    color:var(--ink-faint);
+    margin:6px 0 0 0;
+    font-style:italic;
+  }
+  .sec-rule{
+    height:1px;background:var(--line-soft);
+    margin:20px 0 26px;
+  }
+
+  /* ---------- question block ---------- */
+  .block{margin:0 0 30px;}
+  .block:last-child{margin-bottom:4px;}
+  .block-label{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--design-deep);
+    margin:0 0 10px;
+  }
+  .q{
+    font-size:17.5px;
+    color:var(--ink);
+    margin:0;
+    line-height:1.58;
+  }
+  .q .eg{color:var(--ink-faint);}
+  .prompts{
+    margin:14px 0 0;
+    padding:0;
+    list-style:none;
+    counter-reset:p;
+  }
+  .prompts li{
+    position:relative;
+    padding:0 0 0 30px;
+    margin:0 0 11px;
+    font-size:16px;
+    color:var(--ink-soft);
+    line-height:1.55;
+  }
+  .prompts li::before{
+    counter-increment:p;
+    content:counter(p);
+    position:absolute;left:0;top:1px;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12px;
+    color:var(--perception);
+    border:1px solid var(--perception-soft);
+    background:#fff;
+    width:20px;height:20px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* poll chip */
+  .scale{
+    display:inline-flex;gap:6px;margin:12px 0 2px;
+    font-family:"IBM Plex Mono",monospace;font-size:13px;
+  }
+  .scale span{
+    width:30px;height:30px;border:1px solid var(--line);
+    border-radius:5px;display:flex;align-items:center;justify-content:center;
+    color:var(--ink-soft);background:#fff;
+  }
+  .scale span:first-child{color:var(--ink-faint);}
+  .scale span:last-child{border-color:var(--design);color:var(--design-deep);}
+
+  /* ---------- pre-survey aside ---------- */
+  .aside{
+    margin-top:18px;
+    background:var(--design-soft);
+    border-radius:6px;
+    padding:18px 20px;
+  }
+  .aside h3{
+    font-size:13px;font-family:"IBM Plex Mono",monospace;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--design-deep);
+    margin:0 0 4px;font-weight:500;
+  }
+  .aside p{font-size:14.5px;color:var(--ink-soft);margin:0 0 14px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:5px 13px;font-size:13.5px;color:var(--ink);
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .chip b{
+    font-family:"IBM Plex Mono",monospace;font-weight:500;
+    color:var(--perception);font-size:12.5px;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:64px;padding-top:26px;border-top:1px solid var(--line);
+    font-size:14.5px;color:var(--ink-faint);
+  }
+  footer a{color:var(--design-deep);text-decoration:none;border-bottom:1px solid var(--design-soft);}
+  footer a:hover{border-bottom-color:var(--design);}
+  footer p{margin:0 0 8px;}
+
+  a:focus-visible,li:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px;}
+
+  @media (max-width:560px){
+    body{font-size:16px;}
+    .wrap{padding:0 20px 72px;}
+    header{padding:52px 0 32px;}
+    .sec-head{flex-direction:column;gap:4px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Supplementary Material · Interview Guide</div>
+    <h1>Semi-Structured Follow-Up Interviews on Healthcare-Robot Coexistence</h1>
+    <p class="sub">The prompts below guided our follow-up interviews with co-design participants, conducted after a 14-week healthcare-robot co-design process.</p>
+
+    <div class="procedure">
+      <p class="tag">How to read this guide</p>
+      <p>These materials guided <strong>semi-structured</strong> interviews. We opened each topic with the lead question and followed up with neutral probes (e.g., “Can you say more about that?”) and the listed prompts only when a participant had not already raised them. Questions were adapted, reordered, or skipped per participant rather than read verbatim or in a fixed order; bracketed examples in our working notes were not read aloud. The three blocks loosely map to the study's two guiding topics — the <em>evolution of perceived promise</em> and the <em>envisioned human–robot coexistence</em> in care.</p>
+    </div>
+  </header>
+
+  <!-- Section 1 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-marker">A</span>
+      <h2>Grounding in the Final Prototypes</h2>
+    </div>
+    <p class="sec-note">A recap block to re-anchor participants in the artifacts they co-designed before discussing perception.</p>
+    <div class="sec-rule"></div>
+
+    <div class="block">
+      <p class="block-label">Highlights of the built prototypes</p>
+      <p class="q">Regarding the journey to the final mockup: what features did you put the most effort into refining, and what considerations guided those refinements?</p>
+    </div>
+
+    <div class="block">
+      <p class="block-label">Improvements envisioned but not yet achieved</p>
+      <p class="q">Beyond the final mockup: if you had more time, or were inspired by others' work during or after the soft opening, what would you want to improve? Were there things you feel weren't fully realized in the mockup that you would want developed if it were actually built?</p>
+    </div>
+
+    <div class="block">
+      <p class="block-label">Envisioning the prototype after deployment</p>
+      <p class="q">If this robot were deployed in a real healthcare setting, what challenges or concerns do you foresee? What kinds of support do you think it would need to fit in well?</p>
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-marker">B</span>
+      <h2>Shifts in Perception</h2>
+    </div>
+    <p class="sec-note">Corresponds to the paper's first guiding topic — the evolution of perceived promise.</p>
+    <div class="sec-rule"></div>
+
+    <div class="block">
+      <p class="block-label">Perceived promise · quick poll</p>
+      <p class="q">How promising do you find the use of robots in healthcare settings? Please rate on a scale from 1 to 5. Compared to what you thought before the session, has this score changed? If so, did it increase or decrease, and why?</p>
+      <div class="scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+
+    <div class="block">
+      <p class="block-label">Revisiting concerns</p>
+      <p class="q">In the pre-survey you raised some concerns. Have those concerns persisted, changed, or been addressed since — and in what ways?</p>
+      <p class="sec-note" style="margin-top:10px">Before this question, participants were reminded of their own earlier pre-survey responses.</p>
+    </div>
+  </section>
+
+  <!-- Section 3 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-marker">C</span>
+      <h2>Robots as Part of the Environment</h2>
+    </div>
+    <p class="sec-note">Corresponds to the paper's second guiding topic — envisioned human–robot coexistence.</p>
+    <div class="sec-rule"></div>
+
+    <div class="block">
+      <p class="block-label">Lead question</p>
+      <p class="q">How do you feel about robots becoming part of the everyday surroundings in hospitals, clinics, or other medical settings?</p>
+    </div>
+
+    <div class="block">
+      <p class="block-label">Follow-up probes · used only as needed</p>
+      <ol class="prompts">
+        <li>Might this change how you see the quality of care, the hospital environment, or the patient experience?</li>
+        <li>Any concerns specific to the settings you designed for?</li>
+        <li>If people are hesitant about robots in care spaces, what might help? How could robots be introduced so people feel more comfortable?</li>
+      </ol>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

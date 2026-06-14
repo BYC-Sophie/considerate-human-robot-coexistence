@@ -743,6 +743,289 @@ a:focus {
 }
 
 
+/* ============================================================
+   Considerate Human–Robot Coexistence — umbrella concept page
+   ============================================================ */
+
+/* Anchor offset so headings aren't hidden under fixed elements */
+:target {
+  scroll-margin-top: 2rem;
+}
+
+/* ---- Umbrella hero ---- */
+.concept-hero {
+  background: linear-gradient(160deg, #f8fafc 0%, #eef2ff 60%, #f1f5f9 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.concept-hero .hero-body {
+  padding: 3.25rem 1.5rem 2.75rem;
+}
+
+.concept-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.concept-title {
+  background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem !important;
+}
+
+.concept-subtitle {
+  max-width: 660px;
+  margin: 1rem auto 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.concept-authors {
+  margin-bottom: 0.25rem !important;
+}
+
+.concept-cta {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- Two-lens grid ---- */
+.lens-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: stretch;
+  margin: 2rem 0 0.5rem;
+  text-align: left;
+}
+
+.lens-card {
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.lens-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.lens-design { border-top: 4px solid #2563eb; }
+.lens-perception { border-top: 4px solid #ef4444; }
+
+.lens-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.lens-perception .lens-icon { color: #ef4444; }
+
+.lens-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.lens-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.85rem;
+}
+
+.lens-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--background-accent);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+
+.lens-bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-align: center;
+  gap: 0.4rem;
+}
+
+.lens-bridge i {
+  font-size: 1.6rem;
+}
+
+/* ---- Figure placeholders ---- */
+.figure-placeholder {
+  margin: 2rem 0 0;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background: var(--background-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.figure-placeholder:hover {
+  border-color: var(--primary-color);
+}
+
+.placeholder-inner {
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.placeholder-inner i {
+  font-size: 2.25rem;
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+}
+
+.placeholder-inner p {
+  margin: 0.2rem 0;
+}
+
+.placeholder-inner small {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--text-light);
+}
+
+.placeholder-inner code {
+  font-size: 0.8rem;
+}
+
+.placeholder-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.placeholder-row .figure-placeholder {
+  margin-top: 2rem;
+}
+
+/* ---- Bridge figure ---- */
+.bridge-figure {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.bridge-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---- Paper cards ---- */
+.paper-section-alt {
+  background: var(--background-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.paper-card {
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.paper-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.badge-design { background: #e0edff; color: #1d4ed8; }
+.badge-perception { background: #fee2e2; color: #dc2626; }
+
+.paper-title {
+  text-align: left;
+  font-size: 1.7rem !important;
+  padding-bottom: 0 !important;
+}
+
+.paper-title::after { display: none; }
+
+.paper-authors {
+  margin-top: 0.5rem !important;
+}
+
+.paper-links {
+  margin: 1rem 0 1.5rem;
+}
+
+.paper-figure {
+  margin: 1.5rem 0;
+}
+
+.paper-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+}
+
+.paper-figure figcaption,
+.bridge-figure figcaption {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.abstract-label {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Responsive ---- */
+@media screen and (max-width: 768px) {
+  .concept-title { font-size: 2.1rem !important; }
+  .concept-subtitle { font-size: 1.05rem; }
+  .lens-grid { grid-template-columns: 1fr; }
+  .lens-bridge { flex-direction: row; padding: 0.5rem 0; }
+  .lens-bridge i { transform: rotate(90deg); }
+  .placeholder-row { grid-template-columns: 1fr; }
+  .paper-card { padding: 1.5rem; }
+  .paper-title { font-size: 1.35rem !important; }
+}
+
 /* Print styles */
 @media print {
   .more-works-container {
