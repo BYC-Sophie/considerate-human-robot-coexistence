@@ -18,14 +18,16 @@
   <meta property="og:title" content="Considerate Human-Robot Coexistence">
   <meta property="og:description" content="A research program bridging robot design and human perception toward considerate human-robot coexistence in healthcare.">
   <meta property="og:url" content="https://byc-sophie.github.io/considerate-human-robot-coexistence/">
-  <meta property="og:image" content="static/images/dual-space-cr.png">
+  <meta property="og:image" content="https://byc-sophie.github.io/considerate-human-robot-coexistence/static/images/dual-space-cr.png">
+  <meta property="og:image:width" content="1672">
+  <meta property="og:image:height" content="941">
   <meta property="og:image:alt" content="Dual-space framework linking robot design and human perception">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Considerate Human-Robot Coexistence">
   <meta name="twitter:description" content="A research program bridging robot design and human perception toward considerate human-robot coexistence in healthcare.">
-  <meta name="twitter:image" content="static/images/dual-space-cr.png">
+  <meta name="twitter:image" content="https://byc-sophie.github.io/considerate-human-robot-coexistence/static/images/dual-space-cr.png">
 
   <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
@@ -301,23 +303,106 @@
 
         <div class="publication-links paper-links">
           <span class="link-block">
-            <a href="./static/pdfs/coexistence.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
-              <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+            <a href="https://arxiv.org/abs/2604.04374" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
             </a>
           </span>
           <span class="link-block">
-            <a href="./static/pdfs/interview-guide.html" target="_blank" class="external-link button is-normal is-rounded is-dark">
+            <a href="./static/pdfs/coexistence.pdf" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper (PDF)</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a href="./static/pdfs/interview-guide.html" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
               <span class="icon"><i class="fas fa-clipboard-list"></i></span><span>Interview Protocol</span>
             </a>
           </span>
         </div>
 
-        <figure class="paper-figure">
-          <img src="static/images/dual-space-cr.png" alt="Dual-space framework of robot design and human perception" loading="lazy">
-          <figcaption>The dual-space framework: four robot-design dimensions (left) mapped to four
-            human-perception dimensions (right, e.g. degree of decomposition, source of evidence, scope of
-            reasoning, temporal orientation) through how design shapes &mdash; and is informed by &mdash; perception.</figcaption>
-        </figure>
+        <!-- Interactive dual-space mapping -->
+        <div class="dualspace" id="dualspace">
+          <div class="ds-headers">
+            <div class="ds-head ds-head-design"><i class="fas fa-drafting-compass"></i> Robot Design Space</div>
+            <div class="ds-head-mid"><i class="fas fa-exchange-alt"></i></div>
+            <div class="ds-head ds-head-perception"><i class="fas fa-users"></i> Human Perception Space</div>
+          </div>
+
+          <div class="ds-rows" role="tablist" aria-label="Dual-space dimension pairs">
+            <button class="ds-row is-active" data-pair="0" role="tab" aria-selected="true">
+              <span class="ds-cell ds-design">
+                <span class="ds-num">1</span>
+                <span class="ds-text"><strong>Use Scenarios &amp; Workflows</strong>
+                  <small>Robot roles, tasks, and expected functions within workflows</small></span>
+              </span>
+              <span class="ds-link"><i class="fas fa-arrow-right"></i><i class="fas fa-arrow-left"></i></span>
+              <span class="ds-cell ds-perception">
+                <span class="ds-text"><strong>Degree of Decomposition</strong>
+                  <small>Whether judgments target the robot as a whole or specific functions</small>
+                  <span class="ds-poles">Holistic <i class="fas fa-arrows-alt-h"></i> Decomposed</span></span>
+              </span>
+            </button>
+
+            <button class="ds-row" data-pair="1" role="tab" aria-selected="false">
+              <span class="ds-cell ds-design">
+                <span class="ds-num">2</span>
+                <span class="ds-text"><strong>Embodiment &amp; Interaction</strong>
+                  <small>Physical form, behavior, and interaction modalities</small></span>
+              </span>
+              <span class="ds-link"><i class="fas fa-arrow-right"></i><i class="fas fa-arrow-left"></i></span>
+              <span class="ds-cell ds-perception">
+                <span class="ds-text"><strong>Source of Evidence</strong>
+                  <small>What people draw on when judging robots</small>
+                  <span class="ds-poles">First-hand <i class="fas fa-arrows-alt-h"></i> Observational</span></span>
+              </span>
+            </button>
+
+            <button class="ds-row" data-pair="2" role="tab" aria-selected="false">
+              <span class="ds-cell ds-design">
+                <span class="ds-num">3</span>
+                <span class="ds-text"><strong>Facility &amp; Environmental Constraints</strong>
+                  <small>Spatial, organizational, and deployment conditions</small></span>
+              </span>
+              <span class="ds-link"><i class="fas fa-arrow-right"></i><i class="fas fa-arrow-left"></i></span>
+              <span class="ds-cell ds-perception">
+                <span class="ds-text"><strong>Scope of Reasoning</strong>
+                  <small>How far judgments extend beyond the immediate task</small>
+                  <span class="ds-poles">Task-focused <i class="fas fa-arrows-alt-h"></i> Societal</span></span>
+              </span>
+            </button>
+
+            <button class="ds-row" data-pair="3" role="tab" aria-selected="false">
+              <span class="ds-cell ds-design">
+                <span class="ds-num">4</span>
+                <span class="ds-text"><strong>Autonomy &amp; Technical Capabilities</strong>
+                  <small>Capabilities, constraints, and development pathways</small></span>
+              </span>
+              <span class="ds-link"><i class="fas fa-arrow-right"></i><i class="fas fa-arrow-left"></i></span>
+              <span class="ds-cell ds-perception">
+                <span class="ds-text"><strong>Temporal Orientation</strong>
+                  <small>Whether judgments focus on present readiness or evolving potential</small>
+                  <span class="ds-poles">State-based <i class="fas fa-arrows-alt-h"></i> Evolving</span></span>
+              </span>
+            </button>
+          </div>
+
+          <div class="ds-detail" id="dsDetail" aria-live="polite">
+            <div class="ds-rel ds-rel-down">
+              <span class="ds-rel-label"><i class="fas fa-arrow-right"></i> Design shapes perception</span>
+              <p id="dsShapes">Roles and tasks clarify whether people evaluate specific functions or the robot as a whole.</p>
+            </div>
+            <div class="ds-rel ds-rel-up">
+              <span class="ds-rel-label"><i class="fas fa-arrow-left"></i> Perception informs design</span>
+              <p id="dsInforms">The level of attribution guides functional revision or broader role reframing.</p>
+            </div>
+          </div>
+
+          <p class="ds-hint"><i class="fas fa-hand-pointer"></i> Select a dimension pair to see how design and perception shape each other.</p>
+        </div>
+
+        <figcaption class="dualspace-caption">The <strong>dual-space framework</strong>: four robot-design
+          dimensions (left) and four human-perception dimensions (right) coupled through a co-evolving loop &mdash;
+          design decisions shape how people perceive robots, and those perceptions feed back to reframe what is
+          designed next.</figcaption>
 
         <div class="content has-text-justified paper-abstract">
           <h4 class="abstract-label">Abstract</h4>
@@ -363,7 +448,7 @@
   year={2026}
 }
 
-@article{bai2026coexistence,
+@article{bai2026towards,
   title={Towards Considerate Human-Robot Coexistence: A Dual-Space Framework of Robot Design and Human Perception in Healthcare},
   author={Bai, Yuanchen and Ding, Zijian and Han, Ruixiang and Parikh, Niti and Ju, Wendy and Taylor, Angelique},
   journal={arXiv preprint arXiv:2604.04374},
