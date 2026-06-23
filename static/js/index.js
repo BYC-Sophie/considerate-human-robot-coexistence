@@ -119,53 +119,6 @@ function setupVideoCarouselAutoplay() {
     });
 }
 
-// Interactive dual-space framework mapping
-function setupDualSpace() {
-    const container = document.getElementById('dualspace');
-    if (!container) return;
-
-    const relations = [
-        {
-            shapes: 'Roles and tasks clarify whether people evaluate specific functions or the robot as a whole.',
-            informs: 'The level of attribution guides functional revision or broader role reframing.'
-        },
-        {
-            shapes: 'Embodied encounters provide the experiences and observations people use to judge robots.',
-            informs: 'Experiential evidence informs later refinements to form and interaction.'
-        },
-        {
-            shapes: 'Deployment conditions broaden reasoning from immediate tasks to organizational and societal concerns.',
-            informs: 'Broader concerns inform later spatial, organizational, and safety decisions.'
-        },
-        {
-            shapes: 'Capability and autonomy maturity shape whether judgments focus on present readiness or future potential.',
-            informs: 'Temporal judgments shape immediate reliability or staged capability and autonomy development.'
-        }
-    ];
-
-    const rows = container.querySelectorAll('.ds-row');
-    const shapesEl = document.getElementById('dsShapes');
-    const informsEl = document.getElementById('dsInforms');
-
-    function select(index) {
-        rows.forEach((row, i) => {
-            const active = i === index;
-            row.classList.toggle('is-active', active);
-            row.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
-        if (shapesEl) shapesEl.textContent = relations[index].shapes;
-        if (informsEl) informsEl.textContent = relations[index].informs;
-    }
-
-    rows.forEach((row, i) => {
-        row.addEventListener('click', () => select(i));
-        row.addEventListener('mouseenter', () => select(i));
-        row.addEventListener('focus', () => select(i));
-    });
-
-    select(0);
-}
-
 $(document).ready(function() {
     // Check for click events on the navbar burger icon
 
@@ -185,8 +138,5 @@ $(document).ready(function() {
     
     // Setup video autoplay for carousel
     setupVideoCarouselAutoplay();
-
-    // Setup interactive dual-space framework
-    setupDualSpace();
 
 })
